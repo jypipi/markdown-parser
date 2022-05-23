@@ -31,7 +31,10 @@ public class TestForReport4 {
         ArrayList<String> result = new ArrayList<String>(
             Arrays.asList("a.com", "a.com(())", "example.com"));
 
-        assertEquals(true, links.equals(result));
+        assertEquals(3, links.size());
+        assertEquals("a.com", links.get(0));
+        assertEquals("a.com(())", links.get(1));
+        assertEquals("example.com", links.get(2));
     }
 
     @Test
@@ -41,7 +44,7 @@ public class TestForReport4 {
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> result = new ArrayList<String>(Arrays.asList());
 
-        assertEquals(true, links.equals(result));
+        assertEquals(0, links.size());
     }
 
     // For reviewed repo's implementation
@@ -72,7 +75,10 @@ public class TestForReport4 {
         ArrayList<String> result = new ArrayList<String>(
             Arrays.asList("a.com", "a.com(())", "example.com"));
 
-        assertEquals(true, links.equals(result));
+        assertEquals(3, links.size());
+        assertEquals("a.com", links.get(0));
+        assertEquals("a.com(())", links.get(1));
+        assertEquals("example.com", links.get(2));
     }
 
     @Test
@@ -84,6 +90,6 @@ public class TestForReport4 {
         ArrayList<String> links = reviewedMarkdownParse.getLinks(content);
         ArrayList<String> result = new ArrayList<String>(Arrays.asList());
 
-        assertEquals(true, links.equals(result));
+        assertEquals(0, links.size());
     }
 }

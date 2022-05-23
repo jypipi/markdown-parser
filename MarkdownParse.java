@@ -60,6 +60,12 @@ public class MarkdownParse {
             else {
                 start = markdown.lastIndexOf("(", dotIndex);
                 end = markdown.indexOf(")", start);
+
+                // Check if there is a "`" before "["
+                if (markdown.substring(currentIndex, openBracket).contains("`")) {
+                    currentIndex = end + 1;
+                    continue;
+                }
             }
 
             // Generate a substring containing this link
@@ -74,6 +80,20 @@ public class MarkdownParse {
             }
 
             currentIndex = end + 1;
+
+            // Check if there is "`" before the next "[" and update currentIndex
+            if (currentIndex < markdown.length()) {
+                // Check if a link would exist in the remaining substring
+                int nextBracketIdx = markdown.indexOf("[", currentIndex);
+                if (nextBracketIdx == -1) {
+                    break;
+                }
+
+                String beforeNextBracket = markdown.substring(currentIndex, markdown.indexOf("[", currentIndex));
+                if (beforeNextBracket.contains("`")) {
+                    currentIndex = markdown.indexOf("`", currentIndex) + 1;
+                }
+            }
 
             // // Original Code
             // int openBracket = markdown.indexOf("[", currentIndex);

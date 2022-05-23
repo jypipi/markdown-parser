@@ -1,4 +1,4 @@
-## Snippet 1 Expected Output
+## Snippet 1
 `[a link`](url.com)
 
 [another link](`google.com)`

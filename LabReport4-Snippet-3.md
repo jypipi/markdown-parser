@@ -1,4 +1,3 @@
-## Snippet 3 Expected Output
 [this title text is really long and takes up more than
 one line
 
