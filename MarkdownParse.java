@@ -69,7 +69,7 @@ public class MarkdownParse {
             returnedStr = returnedStr.replaceAll(" ", "");
 
             // Check if the string is empty
-            if (returnedStr.equals("") == false) {
+            if (!returnedStr.equals("")) {
                 toReturn.add(returnedStr);
             }
 

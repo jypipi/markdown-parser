@@ -15,9 +15,12 @@ public class TestForReport4 {
         String content = Files.readString(file);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> result = new ArrayList<String>(
-            Arrays.asList("google.com", "google.com", "ucsd.edu"));
+            Arrays.asList("`google.com", "google.com", "ucsd.edu"));
 
-        assertEquals(true, links.equals(result));
+        assertEquals(3, links.size());
+        assertEquals("`google.com", links.get(0));
+        assertEquals("google.com", links.get(1));
+        assertEquals("ucsd.edu", links.get(2));
     }
 
     @Test
@@ -26,7 +29,7 @@ public class TestForReport4 {
         String content = Files.readString(file);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> result = new ArrayList<String>(
-            Arrays.asList("a.com", "a.com", "example.com"));
+            Arrays.asList("a.com", "a.com(())", "example.com"));
 
         assertEquals(true, links.equals(result));
     }
@@ -51,9 +54,12 @@ public class TestForReport4 {
         // Call getLinks() of the reviewed repo's MarkdownParse file
         ArrayList<String> links = reviewedMarkdownParse.getLinks(content);
         ArrayList<String> result = new ArrayList<String>(
-            Arrays.asList("google.com", "google.com", "ucsd.edu"));
+            Arrays.asList("`google.com", "google.com", "ucsd.edu"));
 
-        assertEquals(true, links.equals(result));
+        assertEquals(3, links.size());
+        assertEquals("`google.com", links.get(0));
+        assertEquals("google.com", links.get(1));
+        assertEquals("ucsd.edu", links.get(2));
     }
 
     @Test
@@ -64,7 +70,7 @@ public class TestForReport4 {
         // Call getLinks() of the reviewed repo's MarkdownParse file
         ArrayList<String> links = reviewedMarkdownParse.getLinks(content);
         ArrayList<String> result = new ArrayList<String>(
-            Arrays.asList("a.com", "a.com", "example.com"));
+            Arrays.asList("a.com", "a.com(())", "example.com"));
 
         assertEquals(true, links.equals(result));
     }

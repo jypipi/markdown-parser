@@ -31,7 +31,7 @@ public class MarkdownParseTest {
     @Test
     public void checkTest2() throws IOException {
         // test2.md
-        Path file = Path.of("test2.md");
+        Path file = Path.of("C:\\Users\\Jeffrey Chen\\Documents\\GitHub\\markdown-parser\\test2.md");
         String content = Files.readString(file);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> result = new ArrayList<String>(
