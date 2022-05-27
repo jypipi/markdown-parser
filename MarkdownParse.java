@@ -69,6 +69,9 @@ public class MarkdownParse {
             }
 
             // Generate a substring containing this link
+            if (start < 0) {
+                break;
+            }
             returnedStr = markdown.substring(start + 1, end);
             
             // Remove extra spaces if present
